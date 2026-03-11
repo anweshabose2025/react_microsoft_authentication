@@ -114,12 +114,12 @@ https://cyber-training-functions-dqbgf2acc3hgbxbt.eastus-01.azurewebsites.net/ap
 paste this url in App.jsx
 Now check in the local host if that function is working or not. "npm run dev" & no more "func start"
 
---------
+--------x
 App Services => Create Web App => pic
 D:\react-microsoft-authentication1>npm run build
 dist folder got created
 Install Azure App Service Extension in vs code => Click the icon => Click App Services => (Netwoven tenant) => cyber-training => Deploy to Web App => choose dist folder since that particular folder is only got created after "npm run build"
---------
+--------x
 
 Made a repository => react_microsoft_authentication
 git init
@@ -129,4 +129,4 @@ git branch -M main
 git remote add origin https://github.com/anweshabose2025/react_microsoft_authentication.git
 git push -u origin main
 
-
+static web app => create => pic
