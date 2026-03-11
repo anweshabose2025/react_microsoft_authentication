@@ -1,0 +1,121 @@
+rough
+
+Microsoft Windows [Version 10.0.26200.7840]
+(c) Microsoft Corporation. All rights reserved.
+
+D:\react-microsoft-authentication1>node -v
+v24.12.0
+
+D:\react-microsoft-authentication1>npm -v
+11.11.0
+
+PS D:\react-microsoft-authentication1> npx -v        
+11.11.0
+
+D:\react-microsoft-authentication1>npm create vite@latest
+Need to install the following packages:
+create-vite@8.3.0
+Ok to proceed? (y) y
+
+> npx
+> create-vite
+
+│
+◇  Project name:
+│  .
+│
+◇  Select a framework:
+│  React
+│
+◇  Select a variant:
+│  JavaScript
+│
+◇  Use Vite 8 beta (Experimental)?:
+│  No
+│
+◇  Install with npm and start now?
+│  Yes
+
+D:\react-microsoft-authentication1>npm run dev
+
+You may change the title in index.html (Cyber Training Portal)
+
+D:\react-microsoft-authentication1>npm install @azure/msal-browser @azure/msal-react
+You need Microsoft authentication so users can click "Sign in with Microsoft"
+This uses:
+- Microsoft Authentication Library
+which connects your app to:
+- Microsoft Entra ID
+
+Open Azure Portal (anweshabose@qhg1.onmicrosoft.com)
+Go to Microsoft Entra ID
+Click App registrations
+Click New registration
+
+Name => Cyber Training Portal
+Supported account types => Single tenant only - MSFT
+Redirect URI => Single-page application (SPA) => http://localhost:5173
+Register an app you’re working on here.
+Click Register
+
+Display name : Cyber Training Portal
+Application (client) ID : 3f515280-5f90-4f62-ab6a-eeb511212967
+Directory (tenant) ID : ecea507e-d964-42f3-8825-5c1b5efca41f
+
+Made src/msalConfig.js
+Made src/main.jsx
+Made src/App.jsx
+
+D:\react-microsoft-authentication1>npm install -g azure-functions-core-tools@4 --unsafe-perm true
+
+D:\react-microsoft-authentication1>func --version
+4.8.0
+
+D:\react-microsoft-authentication1>mkdir backend
+
+D:\react-microsoft-authentication1>cd backend
+
+D:\react-microsoft-authentication1\backend>func init
+
+Use the up/down arrow keys to select a worker runtime:node
+Use the up/down arrow keys to select a language:javascript
+
+D:\react-microsoft-authentication1\backend>func new
+Use the up/down arrow keys to select a template:HTTP trigger
+Function name: [httpTrigger] getTrainingModules
+The function "getTrainingModules" was created successfully from the "HTTP trigger" template.
+
+src/functions/getTrainingModules.js got created. Make changes in src/functions/getTrainingModules.js
+
+D:\react-microsoft-authentication1\backend>func start
+Functions:
+        getTrainingModules: [GET] http://localhost:7071/api/getTrainingModules
+
+Made files folder in backend
+
+Update App.jsx 's second useEffect section and <ul> section
+
+Azure Portal => search Storage accounts => Create => Data Storage => Containers => Add Container => trainingfiles => Upload => Copy URLs
+&
+go to cybertrainingstorage => Settings => Configuration => Allow Blob anonymous access => Enabled
+
+https://cybertrainingstorage.blob.core.windows.net/trainingfiles/phishing.mp4
+https://cybertrainingstorage.blob.core.windows.net/trainingfiles/acceptable_use_policy.pdf
+
+update getTrainingModules.js with these URLs
+
+So everything is working fine locally. Now to host the function use "Azure Function App" and to host the entire react use "Azure App service"
+
+Azure Portal => search Function App => Create => pic
+Go to cyber-training-functions => API => CORS => http://localhost:5173 => save
+Install Azure Function Extension in vs code => Click the icon => Click Function App => (Netwoven tenant) => cyber-training-functions => Deploy to Function App => choose backend folder since that particular folder is only for the Azure function
+After this function get deployed, you will get the url
+https://cyber-training-functions-dqbgf2acc3hgbxbt.eastus-01.azurewebsites.net/api/getTrainingModules
+paste this url in App.jsx
+Now check in the local host if that function is working or not. "npm run dev" & no more "func start"
+
+App Services => Create Web App => pic
+D:\react-microsoft-authentication1>npm run build
+dist folder got created
+Install Azure App Service Extension in vs code => Click the icon => Click App Services => (Netwoven tenant) => cyber-training => Deploy to Web App => choose dist folder since that particular folder is only got created after "npm run build"
+
