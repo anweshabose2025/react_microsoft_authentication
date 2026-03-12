@@ -33,7 +33,7 @@ function App() {
     return (
       <div>
         <h1>Cyber Security Training Portal</h1>
-        <h5>Microsoft Authentication - Azure Storage accounts (Blob Storage) - Azure Function (Azure Function App) - Hosting in Azure (Azure App service)</h5>
+        <h5>Azure App Registration - Microsoft Authentication - Azure Storage accounts (Blob Storage) - Azure Function (Azure Function App) - Hosting in Azure (Azure App service)</h5>
         <h2>Welcome {account.name}</h2>
         <h3>Training Modules</h3>
 
